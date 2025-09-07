@@ -17,9 +17,11 @@ curl -fsSL https://raw.githubusercontent.com/Viper373/keep_alive/main/keep_alive
 curl -fsSL https://raw.githubusercontent.com/Viper373/keep_alive/main/keep_alive.sh -o keep_alive.sh
 chmod +x keep_alive.sh
 ./keep_alive.sh
+```
 
 ## ⚡ 非交互式安装
 
+```bash
 # 仅安装脚本
 curl -fsSL https://raw.githubusercontent.com/Viper373/keep_alive/main/keep_alive.sh | bash -s install
 
@@ -31,6 +33,7 @@ curl -fsSL https://raw.githubusercontent.com/Viper373/keep_alive/main/keep_alive
 
 # 卸载
 curl -fsSL https://raw.githubusercontent.com/Viper373/keep_alive/main/keep_alive.sh | bash -s uninstall
+```
 
 ## ✨ 脚本特性
 
@@ -76,7 +79,7 @@ systemctl status sing-box-keeper
 # 通过 SysV 服务
 service sing-box-keeper start
 service sing-box-keeper status
-
+```
 
 ## 📝 配置文件
 
