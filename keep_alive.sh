@@ -191,11 +191,32 @@ main() {
     
     if [ $# -gt 0 ]; then
         case $1 in
-            install) create_config; create_keepalive_script ;;
-            service) create_config; create_keepalive_script; install_as_service ;;
-            uninstall) uninstall ;;
-            check) system_compatibility_check ;;
-            *) log "ERROR" "未知参数: $1"; echo "用法: $0 [install|service|uninstall|check]"; exit 1 ;;
+            install)
+                create_config
+                create_keepalive_script
+                ln -sf /usr/local/bin/sing-box-keeper.sh /usr/local/bin/ka
+                log "SUCCESS" "已创建快捷命令: ka"
+                ;;
+            service)
+                create_config
+                create_keepalive_script
+                install_as_service
+                ln -sf /usr/local/bin/sing-box-keeper.sh /usr/local/bin/ka
+                log "SUCCESS" "已创建快捷命令: ka"
+                ;;
+            uninstall)
+                uninstall
+                rm -f /usr/local/bin/ka
+                log "INFO" "已删除快捷命令: ka"
+                ;;
+            check)
+                system_compatibility_check
+                ;;
+            *)
+                log "ERROR" "未知参数: $1"
+                echo "用法: $0 [install|service|uninstall|check]"
+                exit 1
+                ;;
         esac
     else
         interactive_menu
